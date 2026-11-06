@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DueThread: tasks and follow-ups for Chrome</title>
+<meta name="description" content="DueThread is a to-do list and follow-up tracker for Chrome. It keeps the date someone promised separate from the date you will chase them, and reminds you when it is time. No account needed.">
+<meta property="og:title" content="DueThread: tasks and follow-ups for Chrome">
+<meta property="og:description" content="Keep track of what you owe and what other people owe you. Private, no account needed.">
+<meta property="og:type" content="website">
+<link rel="icon" href="icon32.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="icon128.png" alt="" width="30" height="30">DueThread</a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <h1 id="hero-title">Keep track of what other people owe you.</h1>
+    <p class="lede">DueThread is a to-do list and follow-up tracker for Chrome. It keeps the date someone promised separate from the date you will chase them, and reminds you when it is time. Your own tasks live in the same list.</p>
+    <p class="availability" id="store-link">Free for Chrome. The Chrome Web Store listing is coming soon.</p>
+
+    <figure class="thread">
+      <svg viewBox="0 0 760 56" aria-hidden="true" focusable="false">
+        <path d="M24 28 C 170 -2, 250 58, 380 28 S 610 2, 736 28" fill="none" stroke="#6f9579" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="24" cy="28" r="10" fill="#c9644f"/>
+        <circle cx="380" cy="28" r="10" fill="#8fb39a"/>
+        <circle cx="736" cy="28" r="10" fill="#e7eedf"/>
+      </svg>
+      <ol class="knots" aria-label="One follow-up, three dates">
+        <li><span>Promised by</span> <b>Fri 6 Nov</b></li>
+        <li><span>Chased</span> <b>Mon 9 Nov</b></li>
+        <li><span>Received</span> <b>Wed 11 Nov</b></li>
+      </ol>
+      <figcaption>Alex promised the drawings by Friday. You chased on Monday, and they arrived on Wednesday. DueThread keeps all three dates, so the original promise stays on record.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<main id="main">
+  <section class="section" aria-labelledby="s-promise">
+    <div class="wrap split">
+      <div class="copy">
+        <h2 id="s-promise">The promise and the chase are different dates</h2>
+        <p>When a supplier promises revised drawings by Friday, Friday is the deadline. You might want to check in on Wednesday. Most task lists hold one date, so one of those gets lost.</p>
+        <p>DueThread records both. Chasing moves the next chase date, not the deadline. If the date slips, you record a new promise and the first one stays in the item's history.</p>
+      </div>
+      <figure class="shot">
+        <img src="timeline.webp" width="1280" height="800" loading="lazy" alt="An item's details: promised date, next chase date, first promised date, and a timeline listing each chase with notes.">
+        <figcaption>Every chase, note and revised promise, in order.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="s-today">
+    <div class="wrap split reverse">
+      <div class="copy">
+        <h2 id="s-today">Today, in one list</h2>
+        <p>Missed deadlines come first, followed by the follow-ups to chase today and the tasks you owe. Each item can be marked chased, given a new promise or snoozed from the list.</p>
+        <p>Type an item in one line. <code>fu @Alex revised drawings fri</code> records the person and sets Friday as the chase date. A preview shows how the dates were read before anything is added.</p>
+      </div>
+      <figure class="shot">
+        <img src="today.webp" width="1280" height="800" loading="lazy" alt="The Today view: an add bar, a missed deadlines section and follow-ups to act on now.">
+        <figcaption>The Today view.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="s-capture">
+    <div class="wrap split">
+      <div class="copy">
+        <h2 id="s-capture">Capture without leaving the page</h2>
+        <ul>
+          <li>Open DueThread from the toolbar, or press <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>.</li>
+          <li>Keep it in Chrome's side panel, next to the email or document you are working from.</li>
+          <li>Select text on any page, right-click and add it as a task or follow-up, with a link back to the page.</li>
+          <li>Type <code>dut</code>, a space and your item in the address bar.</li>
+        </ul>
+      </div>
+      <div class="pair">
+        <figure class="shot">
+          <img src="popup.webp" width="420" height="650" loading="lazy" alt="DueThread in the toolbar pop-up, showing today's list.">
+          <figcaption>Toolbar pop-up</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="panel.webp" width="360" height="800" loading="lazy" alt="DueThread in Chrome's side panel, showing the review.">
+          <figcaption>Side panel</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="s-review">
+    <div class="wrap split reverse">
+      <div class="copy">
+        <h2 id="s-review">See what is stuck</h2>
+        <p>The review shows what is past its promised date, what is ready to chase, what has arrived in the period you choose, and which requests you have chased repeatedly without result.</p>
+        <p>Projects that have gone quiet are flagged. A project status update can be copied straight into an email or report.</p>
+      </div>
+      <figure class="shot">
+        <img src="review.webp" width="1280" height="800" loading="lazy" alt="The review: counts of overdue promises, follow-ups ready to chase, requests received and requests chased repeatedly.">
+        <figcaption>The review, for any period from one to six weeks.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="s-details">
+    <div class="wrap">
+      <h2 id="s-details">Built to stay out of the way</h2>
+      <div class="facts">
+        <div>
+          <h3>Reminders on your terms</h3>
+          <p>Deadline and chase reminders run separately. Choose gentle or persistent reminders, set quiet hours and get a morning summary of the day.</p>
+        </div>
+        <div>
+          <h3>Private by design</h3>
+          <p>No account and no sign-in. Everything stays in your Chrome profile on your computer. Nothing is sent to any server, and there are no ads or analytics.</p>
+        </div>
+        <div>
+          <h3>Projects that file themselves</h3>
+          <p>Give a project its names and short codes, and new items that mention them are filed automatically. You can always move an item.</p>
+        </div>
+        <div>
+          <h3>Your data, your copy</h3>
+          <p>Export a backup file at any time and import it on another computer. Removing the extension removes its data, so export first.</p>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:36px">Good to know: reminders appear while Chrome is running. Each follow-up tracks one person, so a request to two people is two follow-ups in the same project. There is no sync or mobile app.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 DueThread</span>
+    <nav aria-label="Footer">
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy policy</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
