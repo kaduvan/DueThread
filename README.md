@@ -8,4 +8,7 @@ Home page, privacy policy and support pages for the DueThread Chrome extension, 
 - `pro.html`: DueThread Pro and the waitlist
 - `404.html`: page-not-found
 
+<<<<<<< HEAD
 The support email appears in `privacy.html`, `support.html` and `pro.html`. When the store listing is live, replace the "coming soon" line in `index.html` with a link to it.
+=======
+>>>>>>> 487263c27f81877ddb5ce93fb20be667df44b118
