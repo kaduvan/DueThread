@@ -138,3 +138,17 @@ details p, details ol, details ul { margin-top: 0; }
 }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
 .doc-head .wrap { max-width: 760px; }
+
+.eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--forest); margin: 0 0 10px; }
+@media (prefers-color-scheme: dark) { .eyebrow { color: var(--link); } }
+.btn-buy { display: inline-block; background: var(--forest); color: #fffefa; text-decoration: none; font-weight: 600; padding: 12px 20px; border-radius: 6px; }
+.btn-buy:hover { background: var(--ink); text-decoration: none; }
+.price { font-family: var(--serif); font-size: 34px; margin: 0 0 4px; }
+.plans { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 18px 0 8px; }
+.plan { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 20px 22px; }
+.plan h3 { margin: 0 0 4px; font-size: 18px; }
+.plan ul { margin: 12px 0 0; padding-left: 20px; }
+.plan.pro { border-color: var(--forest); border-width: 2px; }
+.keybox { width: 100%; min-height: 110px; font: 14px/1.5 ui-monospace, Consolas, monospace; padding: 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--text); word-break: break-all; resize: vertical; }
+.notice { border-left: 4px solid var(--knot-late); background: var(--surface); padding: 14px 18px; border-radius: 6px; }
+@media (max-width: 640px) { .plans { grid-template-columns: 1fr; } }
