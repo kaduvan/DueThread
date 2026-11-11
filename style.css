@@ -157,3 +157,9 @@ details p, details ol, details ul { margin-top: 0; }
 .hero-cta span { font-size: 15px; color: #b8c9bd; }
 .btn-store { display: inline-block; background: #fffefa; color: #21362e; text-decoration: none; font-weight: 600; padding: 12px 20px; border-radius: 6px; }
 .btn-store:hover { background: #e7eedf; color: #21362e; text-decoration: none; }
+
+/* About page */
+.about .lead-in { font-family: var(--serif); font-size: clamp(23px, 2.6vw, 28px); line-height: 1.4; letter-spacing: -0.3px; margin: 0 0 28px; }
+.about p { line-height: 1.75; }
+.about .signoff { font-family: var(--serif); font-size: 26px; margin: 40px 0 0; }
+.about .about-cta { margin-top: 36px; }
