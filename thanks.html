@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -6,8 +6,8 @@
 <meta name="robots" content="noindex">
 <meta name="referrer" content="no-referrer">
 <!-- Address of the DueThread licence worker, without a trailing slash. -->
-<meta name="licence-api" content="https://duethread-licence.premkumar-85d.workers.dev">
-<title>Your DueThread Pro licence â€“ DueThread</title>
+<meta name="licence-api" content="LICENCE_API_URL">
+<title>Your DueThread Pro licence – DueThread</title>
 <link rel="icon" href="icon32.png">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -26,7 +26,7 @@
 <div class="doc-head">
   <div class="wrap">
     <h1 id="title">Thank you</h1>
-    <p id="lede">Fetching your DueThread Pro licence keyâ€¦</p>
+    <p id="lede">Fetching your DueThread Pro licence key…</p>
   </div>
 </div>
 
@@ -56,9 +56,9 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <span>Â© 2026 DueThread</span>
+    <span>© 2026 DueThread</span>
     <nav aria-label="Footer">
-      <a href="https://chromewebstore.google.com/detail/duethread-%E2%80%94-tasks-follow/khikacoiommnpmbidofgbacapfpfakbp">Chrome Web Store</a>
+      <a href="STORE_URL">Chrome Web Store</a>
       <a href="pro.html">Pro</a>
       <a href="support.html">Support</a>
       <a href="privacy.html">Privacy policy</a>
@@ -78,7 +78,7 @@
   if (pid) $('ref').textContent = 'Payment reference: ' + pid;
 
   if (!/^pay_[A-Za-z0-9]{6,80}$/.test(pid)) return fail('Nothing to show here', 'This page shows a licence key after a purchase. If you have just paid and landed here without a key, write to ' + support + ' with your payment receipt.');
-  if (status && status !== 'succeeded') return fail('The payment didnâ€™t go through', 'Your payment status is â€œ' + status.replace(/[^a-z_]/g, '') + 'â€, so no licence was issued and you have not been charged for one. You can <a href="pro.html#buy">try again</a>, or write to ' + support + '.');
+  if (status && status !== 'succeeded') return fail('The payment didn’t go through', 'Your payment status is “' + status.replace(/[^a-z_]/g, '') + '”, so no licence was issued and you have not been charged for one. You can <a href="pro.html#buy">try again</a>, or write to ' + support + '.');
 
   let tries = 0;
   async function poll() {
@@ -98,7 +98,7 @@
       if (r.status !== 202) throw new Error('status ' + r.status);
     } catch (e) { if (tries > 3 && tries % 5 === 0) console.warn('Licence lookup', e); }
     if (tries < 40) setTimeout(poll, tries < 10 ? 2000 : 4000);
-    else fail('Your key is taking longer than usual', 'Your payment went through, but the licence key isnâ€™t ready yet. Refresh this page in a few minutes. If it still doesnâ€™t appear, write to ' + support + ' and quote the payment reference below; you will get your key by reply.');
+    else fail('Your key is taking longer than usual', 'Your payment went through, but the licence key isn’t ready yet. Refresh this page in a few minutes. If it still doesn’t appear, write to ' + support + ' and quote the payment reference below; you will get your key by reply.');
   }
   poll();
 
@@ -111,4 +111,3 @@
 </script>
 </body>
 </html>
-
