@@ -46,34 +46,37 @@
       <li><a href="https://chromewebstore.google.com/detail/duethread-%E2%80%94-tasks-follow/khikacoiommnpmbidofgbacapfpfakbp">Install DueThread from the Chrome Web Store</a>.</li>
       <li>Click the puzzle-piece icon in Chrome's toolbar and pin DueThread so it is always visible.</li>
       <li>Click the DueThread icon, or press <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>. Choose <strong>Full view</strong> for more room. From the full view, <strong>Side panel</strong> keeps DueThread beside the page you are working on.</li>
-      <li>Choose <strong>My task</strong> for something you owe, or <strong>Waiting on</strong> for something someone owes you. Type it and press <kbd>Enter</kbd>.</li>
+      <li>Type something you owe, such as <code>Send report fri</code>, or something someone owes you, starting with their name: <code>@Alex drawings fri</code>. Press <kbd>Enter</kbd>.</li>
       <li>Open <strong>Settings</strong> to choose your reminder style, quiet hours and daily summary time, and click <strong>Test notification</strong> to check that reminders can reach you.</li>
     </ol>
 
     <h2 id="typing">Typing dates and details</h2>
-    <p>DueThread reads dates and details from what you type. A preview under the add bar shows how it read them before anything is added.</p>
+    <p>DueThread reads dates, people and projects from what you type. The line under the add bar says in plain words how it read them before anything is added, and shows two examples when the bar is empty. <strong>How to type</strong>, next to the examples, has this table inside DueThread.</p>
     <div class="table-wrap">
       <table>
         <thead><tr><th scope="col">You type</th><th scope="col">DueThread records</th></tr></thead>
         <tbody>
-          <tr><td><code>Send report tomorrow 4pm #client</code></td><td>A task due tomorrow at 4 pm, tagged &ldquo;client&rdquo;.</td></tr>
-          <tr><td><code>fu @Alex revised drawings fri</code></td><td>A follow-up with Alex. Friday is when to chase.</td></tr>
-          <tr><td><code>fu @Alex revised drawings by fri</code></td><td>A follow-up with Alex. Friday is the promised deadline.</td></tr>
+          <tr><td><code>Send report tomorrow 4pm</code></td><td>Your task, due tomorrow at 4 pm.</td></tr>
+          <tr><td><code>@Alex revised drawings fri</code></td><td>Alex owes you the revised drawings, promised for Friday. It goes in Waiting on, Alex is added to People, and DueThread sets the first chase.</td></tr>
+          <tr><td><code>@Alex revised drawings fri chase wed</code></td><td>The same, and you chase on Wednesday.</td></tr>
+          <tr><td><code>Send board pack to @Ravi fri</code></td><td>Your task, due Friday, involving Ravi. A name later in the line does not make it something Ravi owes you.</td></tr>
+          <tr><td><code>Board pack #Harbour</code></td><td>A task in the Harbour project. If there is no Harbour project, it is created; Undo removes it again. Use a hyphen for spaces: <code>#Harbour-expansion</code>.</td></tr>
           <tr><td><code>Call the bank in 3 days</code></td><td>A task due three days from today.</td></tr>
-          <tr><td><code>Submit form 5/12</code></td><td>A task due on 5 December. Dates are read day first.</td></tr>
+          <tr><td><code>Submit form 5/12</code></td><td>A task due on 5 December, or on 12 May if you chose month-first dates in setup.</td></tr>
           <tr><td><code>Pay rent every month on 5th</code></td><td>A task that repeats on the 5th of each month.</td></tr>
           <tr><td><code>Board pack !!</code></td><td>An urgent task. One <code>!</code> means high priority.</td></tr>
           <tr><td><code>=Agenda for tomorrow meeting</code></td><td>Exactly that text, with no date. Start with <code>=</code> to keep words like &ldquo;tomorrow&rdquo; as written.</td></tr>
         </tbody>
       </table>
     </div>
-    <p>For a follow-up, a date on its own is when to chase. Write &ldquo;by&rdquo; or &ldquo;promised&rdquo; before a date to make it the deadline. You can change either date later from the item's details.</p>
+    <p>For something you are waiting on, a date on its own is the date the person promised. Write &ldquo;chase&rdquo; and a day to choose when to chase. A line that starts with &ldquo;chase&rdquo;, such as <code>chase @Alex for drawings fri</code>, keeps the date as the chase date. If a name or project is a letter or two away from one you already have, DueThread asks &ldquo;Did you mean&hellip;?&rdquo; before adding a new one.</p>
+    <p>You can change anything afterwards: open the item and choose <strong>Edit</strong>, or click the person's name on it. After you add, complete or delete something, the message at the bottom of the screen has an <strong>Undo</strong> button for a few seconds.</p>
 
     <h2 id="pro">DueThread Pro</h2>
 
     <details>
       <summary>What does the free version include?</summary>
-      <p>Tasks, follow-ups, projects, reminders and Review have no limit. Workflow tracking (inputs and prerequisites on a task) works on 3 open tasks at a time. The People view with promise records, chase messages, templates, and project timelines and reports are part of Pro. Settings and the sidebar show how many of the 3 tracked tasks are in use.</p>
+      <p>Tasks, follow-ups, projects, the People list, reminders and Review have no limit. Workflow tracking (inputs and prerequisites on a task) works on 3 open tasks at a time. Promise records and chase messages in People, templates, and project timelines and reports are part of Pro. Settings and the sidebar show how many of the 3 tracked tasks are in use.</p>
     </details>
 
     <details>
@@ -104,7 +107,7 @@
     <details>
       <summary>How do I turn on Pro after buying?</summary>
       <ol>
-        <li>Copy the licence key from the page you came back to after paying. It starts with DT1.</li>
+        <li>Copy the licence key from the page you came back to after paying, or from the email with your key. It starts with DT1.</li>
         <li>In DueThread, open <strong>Settings</strong> and choose <strong>Enter licence key</strong>.</li>
         <li>Paste the key and choose <strong>Activate Pro</strong>. Settings then shows the date Pro runs until.</li>
       </ol>
@@ -112,7 +115,7 @@
 
     <details>
       <summary>I lost my licence key</summary>
-      <p>Write to <a href="mailto:support@sensifty.com?subject=DueThread%20Pro%20licence">support@sensifty.com</a> from the email address you used to pay, with your payment receipt or reference. You will get your key by reply.</p>
+      <p>Your key was emailed to the address you paid with, from licences@sensifty.com; search your inbox and spam folder for &ldquo;DueThread Pro licence key&rdquo;. To have it sent again, use the <a href="thanks.html">lost key form</a> and enter the address you paid with. If that doesn't work, write to <a href="mailto:support@sensifty.com?subject=DueThread%20Pro%20licence">support@sensifty.com</a> from that address, with your payment receipt or reference, and you will get your key by reply.</p>
     </details>
 
     <details>
@@ -122,7 +125,7 @@
 
     <details>
       <summary>Does Pro renew automatically?</summary>
-      <p>No. You pay once for a year. Settings shows when it ends, and you can renew from there. Renewing early adds a year to your current end date. If you don't renew, nothing is locked or deleted; workflow tracking goes back to 3 open tasks at a time and the People view, templates and reports are hidden.</p>
+      <p>No. You pay once for a year. Settings shows when it ends, and you can renew from there. Renewing early adds a year to your current end date. If you don't renew, nothing is locked or deleted; workflow tracking goes back to 3 open tasks at a time, and promise records, chase messages, templates and reports are hidden. People stays.</p>
     </details>
 
     <details>
@@ -169,8 +172,18 @@
     </details>
 
     <details>
+      <summary>I deleted something by mistake</summary>
+      <p>Click <strong>Undo</strong> in the message at the bottom of the screen. It appears for a few seconds after you add, complete or delete an item, record a chase or a new promise, or merge or remove a person or project. After that, a deleted item can only come back from a backup.</p>
+    </details>
+
+    <details>
+      <summary>The same person is in People twice</summary>
+      <p>Open <strong>People</strong>, click one of the names, and under <strong>Same person twice</strong> choose the other entry and <strong>Merge</strong>. Every item moves to the person you chose. To change who a single item is with, click the name on that item. Removing a person keeps their items; they are listed under <strong>Not named</strong> until you choose someone.</p>
+    </details>
+
+    <details>
       <summary>How are items filed into projects?</summary>
-      <p>When you create a project, give it its names and any short codes you use. New items that mention them are filed into that project automatically. If DueThread is unsure, it suggests a project for you to confirm. Items you have moved yourself are never moved again automatically.</p>
+      <p>Type <code>#</code> and the project name, such as <code>#Harbour</code>, to file an item yourself. You can also give a project its other names and short codes: new items that mention them are filed into that project automatically, and if DueThread is unsure, it suggests a project for you to confirm. Items you have moved yourself are never moved again automatically. Items with no project are listed under <strong>General</strong>. To combine two projects, open one, choose <strong>Edit</strong> and <strong>Merge</strong>; its name keeps matching new items.</p>
     </details>
 
     <details>

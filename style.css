@@ -163,3 +163,10 @@ details p, details ol, details ul { margin-top: 0; }
 .about p { line-height: 1.75; }
 .about .signoff { font-family: var(--serif); font-size: 26px; margin: 40px 0 0; }
 .about .about-cta { margin-top: 36px; }
+
+/* Lost-key form on the thank-you page */
+.lost-form { display: grid; gap: 10px; max-width: 420px; margin: 18px 0 12px; }
+.lost-form input { font: inherit; padding: 11px 12px; border: 1px solid #b9c7bb; border-radius: 6px; background: #fff; color: #21362e; }
+.lost-form input:focus { outline: 2px solid #3d644b; outline-offset: 1px; }
+.lost-form button { justify-self: start; border: 0; cursor: pointer; font: inherit; font-weight: 600; }
+.lost-form button:disabled { opacity: .6; cursor: default; }

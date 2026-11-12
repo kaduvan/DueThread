@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex">
 <meta name="referrer" content="no-referrer">
 <!-- Address of the DueThread licence worker, without a trailing slash. -->
-<meta name="licence-api" content="LICENCE_API_URL">
+<meta name="licence-api" content="https://duethread-licence.premkumar-85d.workers.dev">
 <title>Your DueThread Pro licence &ndash; DueThread</title>
 <link rel="icon" href="icon32.png">
 <link rel="stylesheet" href="style.css">
@@ -51,6 +51,16 @@
 
     <div id="problem" class="notice" hidden><p id="problem-text"></p></div>
 
+    <div id="lost" hidden>
+      <p>Enter the email address you paid with. If it has a DueThread Pro licence, the key is emailed to that address.</p>
+      <form id="lost-form" class="lost-form">
+        <label for="lost-email"><strong>Email address</strong></label>
+        <input id="lost-email" type="email" required autocomplete="email" maxlength="254">
+        <button class="btn-buy" type="submit" id="lost-send">Email my key</button>
+      </form>
+      <p id="lost-msg" role="status"></p>
+    </div>
+
     <p class="muted" id="ref"></p>
   </div>
 </main>
@@ -79,7 +89,28 @@
   const fail = (title, html) => { $('title').textContent = title; $('lede').textContent = ''; $('waiting').hidden = true; $('problem').hidden = false; $('problem-text').innerHTML = html; };
   if (pid) $('ref').textContent = 'Payment reference: ' + pid;
 
-  if (!/^pay_[A-Za-z0-9]{6,80}$/.test(pid)) return fail('Nothing to show here', 'This page shows a licence key after a purchase. If you have just paid and landed here without a key, write to ' + support + ' with your payment receipt.');
+  // Lost key: email it again to the address that paid. Shown when the page is opened without a payment reference.
+  function lostKey() {
+    $('title').textContent = 'Lost your licence key?'; $('lede').textContent = 'We can email it to you again.';
+    $('waiting').hidden = true; $('ref').textContent = '';
+    if (!/^https?:\/\/\S+$/.test(api)) { $('problem').hidden = false; $('problem-text').innerHTML = 'Write to ' + support + ' from the email address you paid with, and you will get your key by reply.'; return; }
+    $('lost').hidden = false;
+    $('lost-form').addEventListener('submit', async ev => {
+      ev.preventDefault();
+      const msg = $('lost-msg'), btn = $('lost-send');
+      btn.disabled = true; msg.textContent = 'Sending\u2026';
+      try {
+        const r = await fetch(api + '/duethread/resend', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: $('lost-email').value }) });
+        if (r.status === 202) msg.textContent = 'If that address has a DueThread Pro licence, the key is on its way. It usually arrives within a minute; check your spam folder if it doesn\u2019t.';
+        else if (r.status === 400) msg.textContent = 'Please enter the email address you paid with.';
+        else if (r.status === 429) { msg.innerHTML = 'That has been asked a few times already. Please wait 15 minutes, or write to ' + support + '.'; }
+        else throw new Error('status ' + r.status);
+      } catch { msg.innerHTML = 'This isn\u2019t working right now. Write to ' + support + ' from the address you paid with, and you will get your key by reply.'; }
+      btn.disabled = false;
+    });
+  }
+
+  if (!/^pay_[A-Za-z0-9]{6,80}$/.test(pid)) return lostKey();
   if (status && status !== 'succeeded') return fail('The payment didn\u2019t go through', 'Your payment status is \u201c' + status.replace(/[^a-z_]/g, '') + '\u201d, so no licence was issued and you have not been charged for one. You can <a href="pro.html#buy">try again</a>, or write to ' + support + '.');
 
   // If the licence service address has not been filled in, say so at once instead of waiting.
@@ -96,14 +127,14 @@
         $('lede').textContent = 'Your licence key is ready.';
         $('waiting').hidden = true; $('ready').hidden = false;
         $('key').value = b.key;
-        $('valid').textContent = 'Valid until ' + new Date(b.until + 'T00:00:00').toLocaleDateString(undefined, { day: 'numeric', month: 'long', year: 'numeric' }) + (b.email ? ', licensed to ' + b.email + '.' : '.');
+        $('valid').textContent = 'Valid until ' + new Date(b.until + 'T00:00:00').toLocaleDateString(undefined, { day: 'numeric', month: 'long', year: 'numeric' }) + (b.email ? ', licensed to ' + b.email + '.' : '.') + (b.mailed && b.email ? ' A copy has been emailed to that address.' : '');
         return;
       }
       if (r.status === 410) return fail('This payment was refunded', 'No licence key is available for a refunded payment. If this is a mistake, write to ' + support + '.');
       if (r.status !== 202) throw new Error('status ' + r.status);
     } catch (e) { if (tries > 3 && tries % 5 === 0) console.warn('Licence lookup', e); }
     if (tries < 40) setTimeout(poll, tries < 10 ? 2000 : 4000);
-    else fail('Your key is taking longer than usual', 'Your payment went through, but the licence key isn\u2019t ready yet. Refresh this page in a few minutes. If it still doesn\u2019t appear, write to ' + support + ' and quote the payment reference below; you will get your key by reply.');
+    else fail('Your key is taking longer than usual', 'Your payment went through, but the licence key isn\u2019t ready yet. It will also be emailed to the address you paid with, so you can close this page. If nothing arrives within an hour, write to ' + support + ' and quote the payment reference below.');
   }
   poll();
 
